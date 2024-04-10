@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game History</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="container-1">
+            <h2>{{ Data1.name }}'s Details</h2>
+            <p>Wins - </p>
+            <p>Loss - {{ Data1.loss }}</p>
+            <p>Draw - {{ Data1.draw }}</p>
+        </div>
+        <div class="container-1">
+            <h2>{{ Data2.name }}'s Details</h2>
+            <p> Wins - {{ Data2.wins }}</p>
+            <p>Loss - {{ Data2.loss }}</p>
+            <p>Draw - {{ Data2.draw }}</p>
+        </div>
+    </div>
+
+</body>
+</html> -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game History</title>
+    <link rel="stylesheet" href="{% static 'gameData.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap\css\bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Game History</h1>
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Player Name</th>
+                <th scope="col">Wins</th>
+                <th scope="col">Lose</th>
+                <th scope="col">Draws</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{ Data1.name}}</th>
+                <td>{{ Data1.wins }}</td>
+                <td>{{ Data1.loss }}</td>
+                <td>{{ Data1.draw }}</td>
+              </tr>
+              <tr>
+                <th scope="row">{{ Data2.name}}</th>
+                <td>{{ Data2.wins }}</td>
+                <td>{{ Data2.loss }}</td>
+                <td>{{ Data2.draw }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>

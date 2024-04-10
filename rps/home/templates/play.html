@@ -1,0 +1,79 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'play.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap\css\bootstrap.min.css' %}">
+    <title>Play</title>
+</head>
+<body>
+    <nav class="nav justify-content-center align-item-center" style="margin-top: 2%;">
+    <ul class="nav ">
+        <li class="nav-item">
+          <a class="nav-link active text-dark" style="margin-right: 30px;" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{% url 'game_data' player1.id player2.id %}">Game History</a>
+        </li>
+    </ul>
+</nav>
+    <div class="siva">
+        <div class="justify-content-center" style="font-weight: 700;font-size:large">Round - {{round}}/6</div>
+        <div class="scores">
+            <div class="score"><h3>{{player1.name}}'s Score : {{player1.score}}</h3></div>
+            <div class="score"><h3>{{player2.name}}'s Score : {{player2.score}}</h3></div>
+        </div>
+        {% if player1.attempts > 0 and player1.attempts <= 6 %}
+        <form action="{% url 'play' player1.id player2.id %}" method="POST">
+    
+        {% csrf_token %}
+        <div class="options">
+            <div class="option"><label for="">{{player1.name}} select one option</label>
+                <select id="" name="pl-1">
+                    <option value="rock" class="dropdown-item">Rock</option>
+                    <option value="paper" class="dropdown-item">Paper</option>
+                    <option value="scissor" class="dropdown-item">Scissor</option>
+                </select></div>
+            <div class="option"><label for="">{{player2.name}} select one option</label>
+                <select id="" name="pl-2">
+                    <option value="rock" class="dropdown-item">Rock</option>
+                    <option value="paper" class="dropdown-item">Paper</option>
+                    <option value="scissor" class="dropdown-item">Scissor</option>
+                </select></div>
+        </div>
+        <div class="button">
+            <div class="buttons"><input type="submit" value="Start" class="btn btn-lg bg-warning text-dark"></div>
+        
+    </form>
+
+    {% endif %}
+    <div class="buttons"><a href="{% url 'reset' player1.id player2.id  %}" class="btn btn-lg bg-dark text-danger">Reset</a></div>
+    </div>
+    </div>
+        <div class="message">
+            <div class="message"><h1>{{message}}</h1></div>
+        </div>
+    </div>
+    
+    
+    
+
+    
+
+   
+    
+   
+    
+    
+    
+
+
+
+
+
+
+</body>
+</html>

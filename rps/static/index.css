@@ -1,0 +1,41 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+.siva{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding:5%;
+    border-radius: 4%;
+    z-index: -1;
+    
+}
+body{
+    background-image: url('/static/images/hands.jpg');   
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+}
+.siva label{
+    font-weight:bolder;
+    margin-right: 20px;
+}
+.player{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10%;
+}
+.siva .input{
+    border: none;
+    outline: none;
+    opacity: 0.8;
+
+}
+.siva .player3{
+    margin-top: 5%;
+    margin-left: 30%;
+}
+
